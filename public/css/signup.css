@@ -1,0 +1,100 @@
+:root {
+  --light-grey-color: #b1a9a9;
+}
+.logpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  background: #ffffff url("http://localhost:3000/img/containerBackground.jpg")
+    no-repeat center;
+}
+
+.regform{
+    background-color: var(--body-color);
+}
+
+#companyform{
+  display: none;
+}
+
+#parcelform{
+  display: none;
+  width: 100%;
+}
+
+footer {
+  flex-direction: row;
+  width: 100vw;
+}
+
+.pincodes{
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ justify-content: space-evenly;
+}
+.pincodes .content{
+  margin: 1rem 0;
+}
+.content p{
+  font-size: 1rem;
+}
+.content ul{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 7px;
+  margin: 12px 0;
+  border-radius: 5px;
+  min-width: 60vw;
+  border: 1px solid #a6a6a6;
+}
+.content ul  li{
+  color: #ffffff;
+  margin: 4px 3px;
+  list-style: none;
+  border-radius: 5px;
+  background: #5372F0;
+  padding: 5px 8px 5px 10px;
+  border: 1px solid #e3e1e1;
+}
+.content ul  li:hover{
+  background: #2c52ed;
+  color: #ffffff;
+}
+.content ul li i{
+  height: 20px;
+  width: 20px;
+  color: #ffffff;
+  margin-left: .8rem;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  justify-content: center;
+}
+.content ul input{
+  flex: 1;
+  padding: 5px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+.pincodes .details{
+  justify-content: space-between;
+}
+.details button{
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 9px 15px;
+  border-radius: 5px;
+  background: #5372F0;
+  margin-left: 1rem;
+  transition: background 0.3s ease;
+}
+.details button:hover{
+  background: #2c52ed;
+}

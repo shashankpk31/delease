@@ -1,0 +1,184 @@
+<%- include('./header') %>
+    <script async src="http://localhost:3000/js/login.js"></script>
+    <link rel="stylesheet" href="http://localhost:3000/css/signup.css" />
+    <link rel="stylesheet" href="http://localhost:3000/css/custsignup.css" />
+    <div class="logpage">
+        <form class="regform container containers d-flex my-3 py-3" id="log-reg" action="/signup/logistic" method="post"
+            >
+            <div class="row g-3 one form-step" id="ownerform">
+                <h3 class="display-8">Owner Details</h3>
+                <% if (err) { %>
+                    <div class="text-danger">
+                        <%= err %>
+                    </div>
+                    <% } %>
+                <div class="col-md-6">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control Oname" name="Oname" placeholder="Enter Your Name" />
+                </div>
+                <div class="col-md-6">
+                    <label for="Lname" class="form-label">Last Name</label>
+                    <input type="text" class="form-control Olname" name="Olname" placeholder="Enter Your Last Name" />
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Email</label>
+                    <input type="email" class="form-control Oemail" id="inputEmail4" name="Oemail"
+                        placeholder="Enter Your Mail" />
+                </div>
+                <div class="col-md-6">
+                    <label for="Ocontact" class="form-label">Contact</label>
+                    <input type="text" class="form-control Ocontact" name="Ocontact" placeholder="Enter Your Contact" />
+                </div>
+                <div class="col-md-6">
+                    <label for="inputAddress" class="form-label">Address</label>
+                    <textarea name="Oaddress" rows="5" cols="*" class="form-control Oaddress"
+                        placeholder="Enter Your Office Address"></textarea>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-4">
+                        <label for="inputAadhar" class="form-label">Upload Aadhar Card</label>
+                        <input type="text" class="d-none" id="Oaadharimg" name="Oaadharimg" value="">
+                        <input type="file" class="form-control Oaadhar" name="image" id="Oaadhar" />
+                    </div>
+                    <div>
+                        <label for="Oupi" class="form-label">Enter UPI Id</label>
+                        <input type="text" class="form-control Oupi" name="Oupi" placeholder="Enter UPI Id" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="OinputState" class="form-label">State</label>
+                    <select id="OState" class="form-select State" name="Ostate">
+                        <option value="Default" selected>Select State</option>
+                    </select>
+                </div>
+                <div class="col-md-6" method="post">
+                    <label for="OinputDistrict" class="form-label">District</label>
+                    <select id="ODistrict" class="form-select District" name="Odistrict">
+                        <option value="Default" selected>Select City</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <button type="button" onclick="onNext1()" class="btn btn-primary btn-lg w-50 Next">
+                        Submit
+                    </button>
+                </div>
+            </div>
+
+            <div class="row g-3 two form-step " id="companyform">
+                <h1 class="display-4">Company Details</h1>
+                <div class="col-12">
+                    <label for="OrgName" class="form-label">Business Title</label>
+                    <input type="text" class="form-control Btitle" placeholder="Enter Name Of Organisation"
+                        name="Btitle" autocomplete="on" required />
+                </div>
+                <div class="col-md-6">
+                    <label for="Bmail" class="form-label">Business Mail</label>
+                    <input type="email" class="form-control Bmail" placeholder="Enter Business Mail" name="Bmail"
+                        autocomplete="on" required />
+                </div>
+                <div class="col-md-6">
+                    <label for="Bcontact" class="form-label">Business Contact</label>
+                    <input type="text" class="form-control Bcontact" placeholder="Enter Business Contact"
+                        name="Bcontact" autocomplete="on" required />
+                </div>
+                <div class="col-md-6">
+                    <label for="inputAddress" class="form-label">Address</label>
+                    <textarea class="form-control" cols="5" rows="5" placeholder="Enter Premises Address"
+                        name="Baddress" autocomplete="on" required></textarea>
+                </div>
+                <div class="col-md-6">
+                    <label for="BinputState" class="form-label">State</label>
+                    <select id="BState" class="form-select State" name="Bstate">
+                        <option selected value="Default">Select State</option>
+                    </select>
+                    <label for="Bdistrict" class="form-label mt-4">District</label>
+                    <select id="BDistrict" class="form-select District" name="Bdistrict">
+                        <option selected value="Default">Select District</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Bpass" class="form-label">Password</label>
+                    <input type="password" class="form-control" placeholder="Enter Password" id="Bpass" name="Bpass"
+                        autocomplete="on" required />
+                </div>
+                <div class="col-md-6">
+                    <label for="BCpass" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" placeholder="Enter Confirm Password" name="BCpass"
+                        autocomplete="on" required />
+                </div>
+                <div class="col-12 d-flex">
+                    <button type="button" onclick="onNext2()" class="btn btn-primary btn-lg w-50 Next">
+                        Next
+                    </button>
+                </div>
+            </div>
+
+            <div class="row g-3 three form-step" id="parcelform">
+                <h1 class="display-4">Parcel Handling Details</h1>
+                <div class="col-md-12">
+                    <label for="Hcat" class="form-label">Base Price:</label>
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">&#8377;</span>
+                        </div>
+                        <input type="number" class="form-control"
+                            placeholder="Enter Rate Per Kilogram For 100 Kilometre" name="Hrateperkg" />
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">&#8377;/1 K.g/100 K.m</span>
+                        </div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="Haddrateperkg" class="form-label">Additional Price( &#8377;/1 K.g.)</label>
+                    <input type="number" class="form-control"
+                        placeholder="Enter Rate To Be Charged On Every Additional 1 Kilogram" name="Haddrateperkg" />
+                </div>
+                <div class="col-md-12">
+                    <label for="Haddrateperkm" class="form-label">Additional Price( &#8377;/100 K.m.)</label>
+                    <input type="number" class="form-control"
+                        placeholder="Enter Rate To Be Charged On Every Additional 100 Kilometre "
+                        name="Haddrateperkm" />
+                </div>
+                <div class="col-md-6">
+                    <label for="inputState" class="form-label">State</label>
+                    <select id="HState" name="Hstate" class="form-control selectpicker State"
+                        data-style="btn-default border border-1" data-live-search="true"
+                        data-selected-text-format="count>3">
+                        <option value="Default" selected>Select State</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputDistrict" class="form-label">District</label>
+                    <select id="HDistrict" name="Hdistrict" class="form-control selectpicker District"
+                        data-style="btn-default border border-1" data-live-search="true"
+                        data-selected-text-format="count>3">
+                        <option value="Default" selected>Select District</option>
+                    </select>
+                </div>
+                <div class="col-md-12 pincodes">
+                    <label for="inputPincodes" class="form-label">
+                        <i class="fa fa-map-marker"></i> Pincodes</label>
+                    <div class="content">
+                        <p>click add button for adding pincodes</p>
+                        <ul id="parentpin">
+                            <input type="text" id="allpin" name="Pincode" value="" style="display: none" />
+                            <input type="text" id="pin" />
+                            <button type="button" class="btn btn-warning" id="addpin">Add Pincodes</button>
+                        </ul>
+                    </div>
+                    <div class="details">
+                        <p><span id="remain">20</span> pincode are remaining</p>
+                        <button type="button" id="remove">Remove All</button>
+                    </div>
+                </div>
+                <div class="col-12 d-flex">
+                    <button type="submit" class="btn btn-primary btn-lg w-50" value="submit">submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script async src="http://localhost:3000/js/logisticsSignup.js"></script>
+    <%- include('./footer') %>

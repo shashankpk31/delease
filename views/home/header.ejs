@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Del@Ease - A New way to deliver your parcel</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="shortcut icon" href="http://localhost:3000/img/logo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="http://localhost:3000/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar" id="Navbar">
+      <div class="logo">
+        <img src="http://localhost:3000/img/logo.svg" height="40px" width="40px" alt="" srcset="" />
+        Del@Ease
+      </div>
+      <div class="navitems" id="navhead">
+        <li class="nav-item">Home</li>
+        <li class="nav-item">AboutUs</li>
+        <li class="nav-item">Services</li>
+        <li class="nav-item">FAQ</li>
+        <li class="nav-item">Message</li>
+        <li class="nav-item">Contact</li>
+      </div>
+      <div class="authitems">
+        <a class="auth-item"  href="/login">login</a>
+        <a class="auth-item" id="signup" href="/signup">signup</a>
+      </div>
+      <input type="checkbox" id="check" onchange="onMenu(this)" />
+      <label for="check" id="bars" class="checkbtn">
+        <i class="fa fa-bars"></i>
+      </label>
+    </nav>

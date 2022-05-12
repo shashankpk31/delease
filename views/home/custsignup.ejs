@@ -1,0 +1,98 @@
+<%- include('./header') %>
+    <script async src="http://localhost:3000/js/login.js"></script>
+    <link rel="stylesheet" href="http://localhost:3000/css/signup.css" />
+    <link rel="stylesheet" href="http://localhost:3000/css/custsignup.css" />
+    <script>
+        async function displayRadioValue() {
+            var ele = document.getElementsByName('Gender');
+            for (i = 0; i < ele.length; i++) {
+                if (ele[i].checked) {
+                    document.getElementById('gender').value = ele[i].value
+                }
+            }
+        }
+    </script>
+    <div class="logpage">
+        <div class="containers  regform my-3" id="cust-reg">
+            <div class="title">Registration</div>
+            <div class="content">
+                <% if (err) { %>
+                    <div class="text-danger">
+                        <%= err %>
+                    </div>
+                    <% } %>
+                        <form action="/signup/customer" method="post">
+                            <div class="user-details">
+                                <div class="input-box">
+                                    <span class="details">Full Name</span>
+                                    <input type="text" name="customerName" placeholder="Enter your name" id="name" />
+                                    <span id="message3" style="color: red"></span>
+                                </div>
+                                <div class="input-box">
+                                    <label for="Address" class="form-label">Address</label>
+                                    <textarea class="form-control" name="customerAddress" rows="1" id="addr"></textarea>
+                                    <span id="message4" style="color: red"></span>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Email</span>
+                                    <input type="email" name="customerEmail" placeholder="Enter your email" id="eml" />
+                                    <span id="message5" style="color: red"></span>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Phone Number</span>
+                                    <input type="tel" name="customerNumber" size="10" minlength="10" maxlength="10"
+                                        placeholder="Enter your number" id="phno" />
+                                    <span id="message6" style="color: red"></span>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Password</span>
+                                    <input type="password" name="customerPassword" placeholder="Enter your password"
+                                        id="pswd" />
+                                    <span id="message1" style="color: red"></span>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Confirm Password</span>
+                                    <input type="password" name="cust_confirm" placeholder="Confirm your password"
+                                        id="cpswd" />
+                                    <span id="message2" style="color: red"></span>
+                                </div>
+                            </div>
+                            <div class="gender-details">
+                                <input type="text" id="gender" name="customerGender" style="display: none;">
+                                <input type="radio" name="Gender" id="dot-1" value="Male" />
+                                <input type="radio" name="Gender" id="dot-2" value="Female" />
+                                <input type="radio" name="Gender" id="dot-3" value="Others" />
+                                <span class="gender-title">Gender</span>
+                                <div class="category">
+                                    <label for="dot-1">
+                                        <span class="dot one"></span>
+                                        <span class="gender">Male</span>
+                                    </label>
+                                    <label for="dot-2">
+                                        <span class="dot two"></span>
+                                        <span class="gender">Female</span>
+                                    </label>
+                                    <label for="dot-3">
+                                        <span class="dot three"></span>
+                                        <span class="gender">Others</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="button">
+                                <input type="submit" onclick="displayRadioValue()" />
+                            </div>
+                            <a type="button" href="/signup/logistic"> Register as logistic</a>
+                        </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("cpswd").addEventListener('change', () => {
+            if (document.getElementById("pswd").value != document.getElementById("cpswd").value) {
+                document.getElementById("cpswd").style.border = "2px solid red"
+            } else {
+                console.log("password matched");
+            }
+        })
+    </script>
+    <%- include('./footer') %>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+  </head>
+  <body>
+    <input type="text" name="img-data" id="image-data">
+    <input type="file" name="img" id="img">
+    <script>
+      document.getElementById("img").addEventListener('change',()=>{
+        const fr = new FileReader()
+        const file = document.getElementById("img").files[0]
+        fr.readAsArrayBuffer(file)
+        fr.onload = function () {
+          // you can keep blob or save blob to another position
+          const blob = new Blob([fr.result])
+          //console.log(blob)
+          // url for download
+          const url = URL.createObjectURL(blob, { type: "image/png" });
+          document.body.innerHTML=`${url}`
+        }
+      })
+    </script>
+  </body>
+</html>

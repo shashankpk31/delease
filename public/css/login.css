@@ -1,0 +1,174 @@
+:root{
+    --light-grey-color:#b1a9a9;
+}
+.logpage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    background: #ffffff url("http://localhost:3000/img/containerBackground.jpg") no-repeat center;
+}
+.wrapper {
+  margin:2rem 0rem;
+  width: 380px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .title {
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 100px;
+  color: var(--body-color);
+  user-select: none;
+  border-radius: 15px 15px 0 0;
+  background: var(--bodyback-color);
+}
+
+.wrapper form {
+  padding: 10px 30px 50px 30px;
+}
+
+.wrapper form .field {
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+
+.wrapper form .field input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.wrapper form .field input:focus,
+form .field input:valid {
+  border-color: var(--bodyback-color);
+}
+
+.wrapper form .field label {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  color: #999999;
+  font-weight: 400;
+  font-size: 17px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+form .field input:focus ~ label,
+form .field input:valid ~ label {
+  top: 0%;
+  font-size: 16px;
+  color: var(--bodyback-color);
+  background: white;
+  transform: translateY(-50%);
+}
+
+form .content {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+form .content .checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form .content input {
+  width: 15px;
+  height: 15px;
+  background: red;
+}
+
+form .content label {
+  color: #262626;
+  user-select: none;
+  padding-left: 5px;
+}
+
+form .content .pass-link {
+  color: "";
+}
+
+form .field input[type="submit"] {
+  color: var(--body-color);
+  border: none;
+  padding-left: 0;
+  margin-top: -10px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--bodyback-color);
+  transition: all 0.3s ease;
+}
+
+form .field input[type="submit"]:active {
+  transform: scale(0.95);
+}
+
+form .signup-link {
+  color: #262626;
+  margin-top: 20px;
+  text-align: center;
+}
+
+form .pass-link a,
+form .signup-link a {
+  color: var(--bodyback-color);
+  text-decoration: none;
+}
+
+form .pass-link a:hover,
+form .signup-link a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  flex-direction: row;
+  width: 100vw;
+}
+
+@media (max-width: 600px) {
+  .container .content .category {
+    flex-direction: column;
+  }
+  .containers {
+    max-width: 100vw;
+    padding: 2rem 4%;
+  }
+  form .user-details .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  form .category {
+    width: 100%;
+  }
+  .content form .user-details {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .user-details::-webkit-scrollbar {
+    width: 5px;
+  }
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
